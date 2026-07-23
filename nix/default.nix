@@ -77,8 +77,6 @@
     darwin.hosts = {
       diaz.userHomeModules = [ "diaz" ];
     };
-    nixos.modulesDirectory = ./modules/nixos;
-    nixos.configurationsDirectory = ./configurations/nixos;
   };
 
   perSystem =
