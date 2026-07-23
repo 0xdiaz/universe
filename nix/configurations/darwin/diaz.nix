@@ -27,6 +27,15 @@
     inputs-to-registry = true;
   };
 
+  # This machine's Nix was installed via the Determinate Systems installer,
+  # which runs its own daemon — let it manage the Nix installation instead
+  # of nix-darwin (nix.settings/registry above still apply via nix-settings).
+  # gc/optimise require nix.enable, so disable those two (Determinate has
+  # its own equivalents).
+  nix.enable = false;
+  nix.optimise.automatic = lib.mkForce false;
+  nix.gc.automatic = lib.mkForce false;
+
   # --- see: nix/darwinModules/mouseless.nix
   mouseless.enable = true;
   mouseless.wm = "aerospace";
