@@ -45,6 +45,9 @@
   # Don't uninstall Homebrew packages that aren't declared here yet (e.g. gh,
   # installed manually before this config existed).
   homebrew.onActivation.cleanup = lib.mkForce "none";
+  # Mac App Store apps require a signed-in App Store account, not set up on
+  # this machine yet; skip for now.
+  homebrew.masApps = lib.mkForce { };
 
   networking = {
     hostName = lib.mkDefault "diaz";
