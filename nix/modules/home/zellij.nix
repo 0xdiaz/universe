@@ -222,7 +222,7 @@ in
             bind "Alt ]" { NextSwapLayout; }
 
             bind "Ctrl y" {
-                LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/latest/download/zellij_forgot.wasm" {
+                LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/download/0.4.2/zellij_forgot.wasm" {
                     floating true
                     move_to_focused_tab true
                 }
@@ -230,7 +230,7 @@ in
 
             // quickly searching and switching between tabs
             bind "Ctrl u" {
-                LaunchOrFocusPlugin "https://github.com/rvcas/room/releases/latest/download/room.wasm" {
+                LaunchOrFocusPlugin "https://github.com/rvcas/room/releases/download/v1.2.1/room.wasm" {
                     floating true
                     ignore_case true
                     quick_jump true
@@ -280,7 +280,7 @@ in
         configuration location="zellij:configuration"
         plugin-manager location="zellij:plugin-manager"
 
-        zjstatus location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+        zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.21.0/zjstatus.wasm" {
             // -- Catppuccin Macchiato --
             color_rosewater "#f4dbd6"
             color_flamingo "#f0c6c6"
@@ -368,7 +368,7 @@ in
     }
 
     load_plugins {
-        "https://github.com/karimould/zellij-forgot/releases/latest/download/zellij_forgot.wasm" {}
+        "https://github.com/karimould/zellij-forgot/releases/download/0.4.2/zellij_forgot.wasm" {}
     }
 
     // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -525,7 +525,7 @@ in
     layout {
         default_tab_template {
             pane size=2 borderless=true {
-                plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+                plugin location="https://github.com/dj95/zjstatus/releases/download/v0.21.0/zjstatus.wasm" {
                     format_left   "{mode} #[fg=#89B4FA,bold]{session}"
                     format_center "{tabs}"
                     format_right  "{command_git_branch} {datetime}"
@@ -597,7 +597,7 @@ in
         default_tab_template {
             children
             pane size=1 borderless=true {
-                plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+                plugin location="https://github.com/dj95/zjstatus/releases/download/v0.21.0/zjstatus.wasm" {
                     format_left   "{mode} #[fg=#89B4FA,bold]{session}"
                     format_center "{tabs}"
                     format_right  "{command_git_branch} {datetime}"
@@ -700,7 +700,7 @@ in
         default_tab_template {
 
             pane size=1 borderless=true {
-                plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+                plugin location="https://github.com/dj95/zjstatus/releases/download/v0.21.0/zjstatus.wasm" {
                     format_left  "#[fg=black,bg=blue,bold]{session}  #[fg=blue,bg=#181825]{tabs}"
                     format_right "{datetime}"
                     format_space "#[bg=#181825]"
@@ -747,7 +747,7 @@ in
 
         default_tab_template {
             pane size=1 borderless=true {
-                plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+                plugin location="https://github.com/dj95/zjstatus/releases/download/v0.21.0/zjstatus.wasm" {
                     format_left  "#[fg=black,bg=blue,bold]{session}  #[fg=blue,bg=#181825]{tabs}"
                     format_right "{datetime}"
                     format_space "#[bg=#181825]"
