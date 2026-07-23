@@ -23,6 +23,9 @@
 
   programs.terminal.use = "ghostty";
 
+  # rtk's crates.io vendor fetch gets 403'd from this network; revisit later.
+  universeHostPackages.excludeRtk = true;
+
   # No GPG/pass/SOPS secrets set up on this machine yet — see
   # nix/configurations/home/r17.nix for how to layer that back in later.
   # activation.nix (shared home module) unconditionally reads
