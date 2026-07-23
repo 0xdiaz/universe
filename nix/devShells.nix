@@ -272,10 +272,37 @@
 
           #
           #
-          #    $ nix develop github:r17x/nixpkgs#bun
+          #    $ nix develop github:0xdiaz/universe#bun
           #
           #
           bun = pkgs.mkShell { buildInputs = [ pkgs.bun ]; };
+
+          #
+          #
+          #    $ nix develop github:0xdiaz/universe#solidity
+          #
+          #    forge/cast/anvil/chisel (Foundry) + a pinned solc; foundryup
+          #    can also manage its own solc versions per-project via svm.
+          #
+          solidity = pkgs.mkShell {
+            description = "Solidity Development Environment";
+            buildInputs = [
+              pkgs.foundry
+              pkgs.solc
+            ];
+          };
+
+          #
+          #
+          #    $ nix develop github:0xdiaz/universe#flutter
+          #
+          #
+          flutter = pkgs.mkShell {
+            description = "Flutter Development Environment";
+            buildInputs = [
+              pkgs.flutterPackages.stable
+            ] ++ lib.optionals pkgs.stdenv.isDarwin [ pkgs.cocoapods ];
+          };
         };
 
     };
