@@ -74,8 +74,6 @@ let
       dr = "direnv reload";
       drb = "darwin-rebuild build --flake ${nixConfigDirectory}";
       drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
-      psc0 = "nix build ${nixConfigDirectory}#darwinConfigurations.RG.system --json | jq -r '.[].outputs | to_entries[].value' | cachix push r17";
-      psc1 = "nix build ${nixConfigDirectory}#darwinConfigurations.eR17.system --json | jq -r '.[].outputs | to_entries[].value' | cachix push r17";
 
       # secret gpg export
       gpbs = "gpg --export-options backup --export-secret-keys";

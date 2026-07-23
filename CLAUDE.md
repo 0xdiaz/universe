@@ -1,14 +1,14 @@
-# R17{x} Universe
+# Diaz's Universe
 
-Declarative system configuration for macOS (nix-darwin), NixOS, and home-manager via Nix flakes.
+Declarative system configuration for macOS (nix-darwin) and home-manager via Nix flakes.
+Forked from [r17x/universe](https://github.com/r17x/universe).
 
 ## Quick Reference
 
 - **Rebuild macOS**: `universe rebuild` or `sudo darwin-rebuild switch --flake .`
 - **Format code**: `nix fmt` (uses `nixfmt-rfc-style`)
-- **Check pre-commit**: `nix flake check` (runs deadnix, nixfmt-rfc-style, stylua, shellcheck, actionlint, dune-fmt)
+- **Check pre-commit**: `nix flake check` (runs deadnix, nixfmt-rfc-style, stylua, shellcheck, actionlint)
 - **Dev shell**: `nix develop` (default shell with pre-commit hooks)
-- **Manage identities**: `universe identity --list`, `universe identity --add <name> <real_name> <email>`
 - **Manage services**: `universe service`
 
 ## Repository Structure
@@ -21,21 +21,15 @@ nix/
   nvim.nix/                        # Neovim configuration (nixvim)
   colors.nix / icons.nix           # Shared color scheme and icon definitions
   configurations/
-    darwin/eR17.nix                # Base macOS config (aarch64-darwin)
-    darwin/eR17x.nix               # Extended macOS config (adds DNS, Tailscale, linux-builder)
-    home/r17.nix                   # Home-manager config for user r17
-    nixos/vm.nix                   # NixOS VM config (microvm)
+    darwin/diaz.nix                # macOS host config (aarch64-darwin)
+    home/diaz.nix                  # Home-manager config
   modules/
     cross/                         # Platform-agnostic (nix settings, nixpkgs config, Fish shell)
-    darwin/                        # macOS modules (system, mouseless WM, homebrew, network, GPG, etc.)
+    darwin/                        # macOS modules (system, homebrew, network, GPG, etc.)
     home/                          # User modules (git, shells, terminal, tmux, packages, etc.)
-    nixos/                         # NixOS modules (user config)
     flake/                         # Flake-level (universe CLI, rebuild scripts, pkgs-by-name)
   overlays/                        # Custom overlays (OCaml packages, Node packages, macOS apps, vim)
   packages/                        # Custom per-system packages (discovered via pkgs-by-name)
-secrets/                           # SOPS-encrypted secrets (secret.yaml)
-apps/                              # Custom applications (norg, rin.rocks)
-notes/                             # Personal notes (.norg format)
 ```
 
 ## Architecture
@@ -50,8 +44,7 @@ notes/                             # Personal notes (.norg format)
 
 | Host | Description |
 |------|-------------|
-| `eR17` | Base: Fish shell, aerospace WM, homebrew, fonts, GPG |
-| `eR17x` | Extends eR17: dnscrypt-proxy + unbound DNS, Tailscale, linux-builder VM |
+| `diaz` | Fish shell, homebrew, fonts, GPG (no aerospace/mouseless WM) |
 
 ## Nix Conventions
 
@@ -63,7 +56,9 @@ notes/                             # Personal notes (.norg format)
 
 ## Secrets
 
-Managed via `sops-nix`. Secrets file: `secrets/secret.yaml`. Contains GPG keys, git identities, API keys. SOPS uses GPG for encryption. Never commit decrypted secrets.
+No secrets/SOPS/GPG identity management is set up on this host yet — the shared
+`sops-nix`-dependent activation scripts from upstream were removed for this host.
+See `nix/configurations/home/diaz.nix` for what was stripped and why.
 
 ## Key Commands
 
@@ -81,6 +76,5 @@ nix run .#mysql              # MariaDB instances on ports 3307-3309
 
 # Universe CLI
 universe rebuild             # darwin-rebuild switch
-universe identity --list     # List git identities
 universe service             # Manage launchd/systemd services
 ```

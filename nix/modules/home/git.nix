@@ -5,16 +5,7 @@
   home.shellAliases.ghd = "gh-dash";
 
   programs = {
-    jujutsu = {
-      enable = true;
-      settings = {
-        # Default user for jujutsu (no signingKey needed)
-        user = {
-          name = "r17x";
-          email = "ri7nz@evilfactory.id";
-        };
-      };
-    };
+    jujutsu.enable = true;
 
     ### git tools
     ## github cli
@@ -71,8 +62,6 @@
             insteadOf = "https://bitbucket.org/";
           };
         };
-        # Include dynamically generated identity configs
-        include.path = "~/.config/git/identities.gitconfig";
       };
     };
   };

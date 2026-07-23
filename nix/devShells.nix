@@ -27,10 +27,6 @@
         deadnix.enable = true;
         deadnix.excludes = [ "nix/overlays/nodePackages/node2nix" ];
         nixfmt-rfc-style.enable = true;
-        dune-fmt.enable = true;
-        dune-fmt.settings.extraRuntimeInputs = [ pkgs.ocamlPackages.ocamlformat ];
-        dune-fmt.files = "apps/rin.rocks";
-        dune-fmt.entry = "dune build @fmt --root=apps/rin.rocks --auto-promote";
       };
 
       devShells =

@@ -178,7 +178,7 @@
         };
         "core.esupports.metagen" = {
           config = {
-            author = "r17x";
+            author = "diaz";
             type = "auto";
           };
         };

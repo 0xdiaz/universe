@@ -56,7 +56,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     homepage = "https://developer.apple.com/design/human-interface-guidelines/sf-symbols";
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     platforms = platforms.darwin;
-    maintainers = with maintainers; [ r17x ];
+    maintainers = [ ];
     license = licenses.mit;
   };
 })

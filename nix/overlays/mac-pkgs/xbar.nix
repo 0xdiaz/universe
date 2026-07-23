@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
     homepage = "https://xbarapp.com/";
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     platforms = platforms.darwin;
-    maintainers = with maintainers; [ r17x ];
+    maintainers = [ ];
     license = licenses.mit;
   };
 }

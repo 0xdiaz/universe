@@ -101,7 +101,7 @@ rec {
           enabled = true;
         };
 
-        claude.api_key_name = "cmd:pass show r17x/anthropic";
+        claude.api_key_name = "cmd:pass show anthropic";
         claude.endpoint = "https://api.anthropic.com";
         claude.model = "claude-3-7-sonnet-20250219";
         claude.temperature = 0.7;
@@ -117,12 +117,12 @@ rec {
             __inherited_from = "copilot";
           };
           grok = groq // {
-            api_key_name = "cmd:pass show r17x/grok.api.key";
+            api_key_name = "cmd:pass show grok.api.key";
             model = "grok-2-latest";
             endpoint = "https://api.x.ai/v1";
           };
           groq = {
-            api_key_name = "cmd:pass show r17x/groq.api.key";
+            api_key_name = "cmd:pass show groq.api.key";
             __inherited_from = "openai";
             endpoint = "https://api.groq.com/openai/v1";
             model = "llama-3.3-70b-versatile";

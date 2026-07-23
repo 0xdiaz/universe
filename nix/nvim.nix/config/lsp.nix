@@ -436,11 +436,11 @@
           diagnostic.suppress = [ "sema-escaping-with" ];
           options =
             let
-              flake = ''(builtins.getFlake "github:r17x/universe")'';
+              flake = ''(builtins.getFlake "github:0xdiaz/universe")'';
             in
             {
-              nix-darwin.expr = ''${flake}.darwinConfigurations.eR17x.options'';
-              home-manager.expr = ''${flake}.homeConfigurations."r17@eR17x".options'';
+              nix-darwin.expr = ''${flake}.darwinConfigurations.diaz.options'';
+              home-manager.expr = ''${flake}.homeConfigurations."diaz@diaz".options'';
               nixvim.expr = ''${flake}.packages.${system}.nvim.options'';
             };
         };

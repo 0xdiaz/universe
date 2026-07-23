@@ -17,5 +17,5 @@ nix run .#nvim
 
 # OR
 
-nix run github:r17x/universe#nvim
+nix run github:0xdiaz/universe#nvim
 ```
