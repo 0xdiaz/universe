@@ -16,9 +16,32 @@
       inputs.self.packages.${pkgs.stdenv.system}.nvim
       inputs.self.packages.${pkgs.stdenv.system}.universe
       pkgs.claude-code
-    ];
+
+      # Go
+      pkgs.go
+
+      # Rust
+      pkgs.rustc
+      pkgs.cargo
+      pkgs.rustfmt
+      pkgs.clippy
+
+      # TypeScript / Next.js / Nest.js (Bun instead of Node.js)
+      pkgs.bun
+
+      # Solidity
+      pkgs.foundry
+      pkgs.solc
+
+      # Flutter
+      pkgs.flutterPackages.stable
+    ] ++ lib.optionals pkgs.stdenv.isDarwin [ pkgs.cocoapods ];
     sessionVariables.EDITOR = lib.getExe' inputs.self.packages.${pkgs.stdenv.system}.nvim "nvim";
     sessionVariables.CLAUDE_CODE_DISABLE_1M_CONTEXT = 1;
+    sessionPath = [
+      "$HOME/go/bin"
+      "$HOME/.cargo/bin"
+    ];
   };
 
   programs.terminal.use = "ghostty";
