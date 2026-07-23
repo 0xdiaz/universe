@@ -36,10 +36,6 @@
   nix.optimise.automatic = lib.mkForce false;
   nix.gc.automatic = lib.mkForce false;
 
-  # --- see: nix/darwinModules/mouseless.nix
-  mouseless.enable = true;
-  mouseless.wm = "aerospace";
-
   # --- nix-darwin
   homebrew.enable = true;
   # Don't uninstall Homebrew packages that aren't declared here yet (e.g. gh,
