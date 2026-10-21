@@ -28,6 +28,8 @@
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Rust toolchain only (pkgs.branches.rust); bump with `nix flake update nixpkgs-rust`.
+    nixpkgs-rust.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs.follows = "nixpkgs-unstable";
 
     ### -- Nix Infra / DevOps

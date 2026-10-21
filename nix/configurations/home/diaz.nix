@@ -20,11 +20,11 @@
       # Go
       pkgs.go
 
-      # Rust
-      pkgs.rustc
-      pkgs.cargo
-      pkgs.rustfmt
-      pkgs.clippy
+      # Rust (separate nixpkgs pin, see flake.nix nixpkgs-rust)
+      pkgs.branches.rust.rustc
+      pkgs.branches.rust.cargo
+      pkgs.branches.rust.rustfmt
+      pkgs.branches.rust.clippy
 
       # TypeScript / Next.js / Nest.js (Bun instead of Node.js)
       pkgs.bun
