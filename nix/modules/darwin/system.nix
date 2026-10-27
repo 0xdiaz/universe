@@ -1,6 +1,6 @@
 {
   # dock
-  system.defaults.dock.autohide = true;
+  system.defaults.dock.autohide = false;
   system.defaults.dock.mru-spaces = false;
   system.defaults.dock.showhidden = true;
   # keyboard UI
