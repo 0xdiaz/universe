@@ -14,8 +14,17 @@ in
 {
   programs.zellij = {
     enable = true;
-    enableFishIntegration = true;
+    # Auto-started below instead, so it can skip Tern panes
+    enableFishIntegration = false;
   };
+
+  # Tern is its own multiplexer: zellij inside it would nest and eat the keys
+  # Tern's keymap already handles
+  programs.fish.interactiveShellInit = lib.mkOrder 200 ''
+    if not set -q TERN_PANE
+      eval (${lib.getExe' pkgs.zellij "zellij"} setup --generate-auto-start fish | string collect)
+    end
+  '';
 
   # Smart session launcher: attach if one session exists, fzf-pick if
   # several, start fresh if none.
