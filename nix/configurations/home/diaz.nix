@@ -61,6 +61,19 @@
   programs.git.userName = "Diaz";
   programs.git.userEmail = "0xliverdiaz@gmail.com";
   programs.git.extraConfig.commit.gpgSign = lib.mkForce false;
+
+  # Work identity (github account diaz-onetrade) for everything under
+  # ~/dev/onetrade. Default above stays personal; the trailing slash makes the
+  # condition match the directory's contents recursively.
+  programs.git.includes = [
+    {
+      condition = "gitdir:~/dev/onetrade/";
+      contents.user = {
+        name = "Diaz Permana";
+        email = "diaz.permana@onetrade.id";
+      };
+    }
+  ];
   programs.jujutsu.settings.user = {
     name = "Diaz";
     email = "0xliverdiaz@gmail.com";
