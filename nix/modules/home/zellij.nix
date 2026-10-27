@@ -55,6 +55,10 @@ in
     keybinds {
         normal {
             // uncomment this and adjust key if using copy_on_select=false
+
+            // Leave these to Claude Code (transcript, todos, stash, background
+            // task); their modes live behind the Ctrl a prefix instead
+            unbind "Ctrl o" "Ctrl t" "Ctrl s" "Ctrl b"
         }
         locked {
             bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -205,6 +209,27 @@ in
             bind "d" { Detach; }
             bind "Space" { NextSwapLayout; }
             bind "x" { CloseFocus; SwitchToMode "Normal"; }
+
+            bind "t" { SwitchToMode "Tab"; }
+            bind "s" { SwitchToMode "Session"; }
+
+            bind "?" {
+                LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/download/0.4.2/zellij_forgot.wasm" {
+                    floating true
+                    move_to_focused_tab true
+                };
+                SwitchToMode "Normal"
+            }
+
+            // quickly searching and switching between tabs
+            bind "w" {
+                LaunchOrFocusPlugin "https://github.com/rvcas/room/releases/download/v1.2.1/room.wasm" {
+                    floating true
+                    ignore_case true
+                    quick_jump true
+                };
+                SwitchToMode "Normal"
+            }
         }
         shared_except "locked" {
             bind "Ctrl g" { SwitchToMode "Locked"; }
@@ -220,22 +245,6 @@ in
             bind "Alt -" { Resize "Decrease"; }
             bind "Alt [" { PreviousSwapLayout; }
             bind "Alt ]" { NextSwapLayout; }
-
-            bind "Ctrl y" {
-                LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/download/0.4.2/zellij_forgot.wasm" {
-                    floating true
-                    move_to_focused_tab true
-                }
-            }
-
-            // quickly searching and switching between tabs
-            bind "Ctrl u" {
-                LaunchOrFocusPlugin "https://github.com/rvcas/room/releases/download/v1.2.1/room.wasm" {
-                    floating true
-                    ignore_case true
-                    quick_jump true
-                }
-            }
         }
 
         shared_except "normal" "locked" {
@@ -247,13 +256,13 @@ in
         shared_except "resize" "locked" {
             bind "Ctrl n" { SwitchToMode "Resize"; }
         }
-        shared_except "scroll" "locked" {
+        shared_except "normal" "scroll" "locked" {
             bind "Ctrl s" { SwitchToMode "Scroll"; }
         }
-        shared_except "session" "locked" {
+        shared_except "normal" "session" "locked" {
             bind "Ctrl o" { SwitchToMode "Session"; }
         }
-        shared_except "tab" "locked" {
+        shared_except "normal" "tab" "locked" {
             bind "Ctrl t" { SwitchToMode "Tab"; }
         }
         shared_except "move" "locked" {
