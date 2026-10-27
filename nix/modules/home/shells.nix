@@ -7,7 +7,7 @@
 }:
 
 let
-  nixConfigDirectory = "~/.config/nixpkgs";
+  nixConfigDirectory = "~/dotfiles";
   # usefull when want to write bin bash
   # n = pkgs.writers.writeBash "n" ''
   #     while getopts p flag
