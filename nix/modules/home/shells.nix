@@ -247,6 +247,13 @@ in
         set -U fish_color_error ${color.raw.base01} --bold
         set -U fish_color_param ${color.raw.base04}
         set fish_greeting
+
+        # The github MCP server (api.githubcopilot.com/mcp) authenticates with
+        # this env var. Sourced from gh's keyring so the token is never written
+        # to the world-readable nix store -- only this command is.
+        if command -q gh
+          set -gx GITHUB_PERSONAL_ACCESS_TOKEN (gh auth token 2>/dev/null)
+        end
       '';
     };
 

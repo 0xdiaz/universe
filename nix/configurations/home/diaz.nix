@@ -26,8 +26,11 @@
       pkgs.branches.rust.rustfmt
       pkgs.branches.rust.clippy
 
-      # TypeScript / Next.js / Nest.js (Bun instead of Node.js)
+      # TypeScript / Next.js / Nest.js (Bun is the primary runtime)
       pkgs.bun
+      # nodejs is only here for `npx`, which the playwright and context7
+      # MCP servers invoke directly. Not for project work -- use bun.
+      pkgs.nodejs
 
       # Solidity
       pkgs.foundry
@@ -41,6 +44,8 @@
     sessionPath = [
       "$HOME/go/bin"
       "$HOME/.cargo/bin"
+      # uv/uvx and the serena MCP server install here
+      "$HOME/.local/bin"
     ];
   };
 
