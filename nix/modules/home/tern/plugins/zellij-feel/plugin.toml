@@ -1,0 +1,6 @@
+schema = 1
+id = "zellij-feel"
+name = "Zellij feel"
+version = "0.2.0"
+description = "zjstatus-style status segments, the calisia layout and a new Claude Code tab shortcut"
+window = "window.luau"
