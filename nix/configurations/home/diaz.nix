@@ -15,7 +15,8 @@
     packages = [
       inputs.self.packages.${pkgs.stdenv.system}.nvim
       inputs.self.packages.${pkgs.stdenv.system}.universe
-      pkgs.claude-code
+      # Claude Code comes from its own auto-updating installer
+      # (~/.local/bin/claude), which Tern's ACP chat runs as well
 
       # Go
       pkgs.go
